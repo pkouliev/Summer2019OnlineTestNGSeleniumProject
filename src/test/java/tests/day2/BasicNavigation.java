@@ -38,6 +38,12 @@ public class BasicNavigation {
 
         // selenium cannot close browser automatically
         // for this, we use method close()
+        // will close only current tab
         driver.close();
+
+        // will close entire browser, regardless on number of tabs.
+        // Because, we may have opened multiple tabs/windows in the same browser.
+        // Also, .quit() will make driver/sessionID null
+        driver.quit();
     }
 }
