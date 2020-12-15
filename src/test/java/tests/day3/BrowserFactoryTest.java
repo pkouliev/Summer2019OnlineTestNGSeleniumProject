@@ -1,6 +1,7 @@
 package tests.day3;
 
 import org.openqa.selenium.WebDriver;
+import utils.BrowserUtils;
 
 import static utils.BrowserFactory.*;
 
@@ -20,6 +21,7 @@ public class BrowserFactoryTest {
 
         Thread.sleep(5000);
 
+        // shutdown browser
         driver.quit();
 
 
