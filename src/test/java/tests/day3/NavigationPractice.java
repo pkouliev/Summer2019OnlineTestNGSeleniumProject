@@ -19,6 +19,9 @@ public class NavigationPractice {
         // as a parameter, we provide number of seconds (time in seconds)
         BrowserUtils.wait(3);
 
+        // Print Page Title
+        System.out.println(driver.getTitle());
+
         driver.navigate().to("http://amazon.com");
         BrowserUtils.wait(3);
 
@@ -35,6 +38,12 @@ public class NavigationPractice {
         BrowserUtils.wait(3);
 
         driver.quit();
+
+        // what will happen if I call driver again after quit?
+        //driver.get("http://google.com"); // Can't call driver after quit(),
+        // will get an Exception
+        // after close(), if there is only one tab, will shutdown browser as well
+        // we cannot use driver anymore, we have to recreate object of WebDriver
 
 
     }
