@@ -36,6 +36,7 @@ public class NavigationPractice {
         // to refresh/reloaf webpage/website
         driver.navigate().refresh();
         BrowserUtils.wait(3);
+        driver.getTitle(); // <title> .... </title>
 
         driver.quit();
 
