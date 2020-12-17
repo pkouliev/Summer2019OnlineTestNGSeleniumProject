@@ -1,19 +1,23 @@
 package tests.day1;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class MyFirstSeleniumScript {
     public static void main(String[] args) {
-        //we have to setup webdriver based on the browser that we gonna use
+//      we have to setup webdriver based on the browser that we gonna use
+//      old way of configuring webdriver
+//      System.setProperty("webbdriver.chrome.driver", "/path/chromedriver");
+
+//      better way to setup webdriver
+//      because any platform and any version is available in one line of code
         WebDriverManager.chromedriver().setup();
 
         //we need to create an object of appropriate class
         ChromeDriver driver = new ChromeDriver();
 
-        //let's open google.com
-        //.get() method allows to open some website
+        // let's open google.com
+        // get() method allows to open some website
         driver.get("http://google.com");
 
         // to read page title, there is method .getTitle()
