@@ -1,17 +1,17 @@
 package tests.day3;
 
 import org.openqa.selenium.WebDriver;
-import utils.BrowserUtils;
 
 import static utils.BrowserFactory.*;
 
-public class BrowserFactoryTest {
+public class BrowserUtilityTest {
 
     public static void main(String[] args) throws InterruptedException {
 
         // getting WebDriver object (driver) using getDriver() method from BrowserFactory class and
         // providing reference variable/parameter (browser name)
         WebDriver driver = getDriver("chrome");
+        assert driver != null;
 
         driver.get("http://practice.cybertekschool.com");
 
