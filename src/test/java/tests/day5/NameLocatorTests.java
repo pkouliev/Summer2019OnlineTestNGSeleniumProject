@@ -12,6 +12,7 @@ public class NameLocatorTests {
         // for Mac users: there is no need to use WebDriverManager for Safari
         // Safari has embedded webdriver support.
         WebDriver driver = BrowserUtils.getDriver("chrome");
+        assert driver != null;
         driver.manage().window().maximize();
         BrowserUtils.wait(2);
 
