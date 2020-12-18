@@ -9,6 +9,7 @@ public class NavigationPractice {
     public static void main(String[] args) {
 
         WebDriver driver = BrowserFactory.getDriver("chrome");
+        assert driver != null;
         driver.manage().window().maximize(); // to maximize browser window
 
         driver.get("http://google.com");

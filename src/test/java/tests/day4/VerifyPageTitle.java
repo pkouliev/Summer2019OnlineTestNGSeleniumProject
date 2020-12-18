@@ -13,6 +13,7 @@ public class VerifyPageTitle {
     public static void main(String[] args) {
 
         WebDriver driver = BrowserFactory.getDriver("chrome");
+        assert driver != null;
         driver.manage().window().maximize();
 
         driver.get("http://practice.cybertekschool.com/forgot_password");

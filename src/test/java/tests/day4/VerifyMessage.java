@@ -21,6 +21,7 @@ public class VerifyMessage {
 
         // as, we are starting from driver setup
         WebDriver driver = BrowserFactory.getDriver("chrome");
+        assert driver != null;
         driver.manage().window().maximize();
         driver.get("http://practice.cybertekschool.com/forgot_password");
         BrowserUtils.wait(2);

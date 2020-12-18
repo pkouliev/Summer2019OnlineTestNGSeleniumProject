@@ -10,6 +10,7 @@ public class ReadAttributesTest {
     public static void main(String[] args) {
 
         WebDriver driver = BrowserUtils.getDriver("chrome");
+        assert driver != null;
         driver.manage().window().maximize();
         BrowserUtils.wait(2);
 
