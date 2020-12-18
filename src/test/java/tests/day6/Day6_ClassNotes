@@ -1,0 +1,22 @@
+//*[starts-with(text(), 'text')] - equals to beginning of the phrase
+
+//*[text()='text'] - equals to exact text
+
+
+We can use contains:
+
+Contains will help us to find element 
+based on partial text/value regardless of location.
+
+//*[contains(text(), 'text')]
+
+//*[contains(@title, 'value')]
+
+(//button)[n] - nth element of matching
+//button[n] - nth child
+
+To go to parent element: use  /..
+
+Example:
+from the text to parent element
+//*[text()='text']/.. 
