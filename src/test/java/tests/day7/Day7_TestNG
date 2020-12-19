@@ -1,0 +1,75 @@
+testing pyramid:
+
+UAT - user acceptance testing
+system
+integration
+unit
+
+unit testing - it's a testing of the smallest functional part of the application
+smallest functional part = method
+developers test their methods to make sure method works as expected.
+It helps to prevent bugs on the UAT stage of testing.
+
+public static String reverseString(string arg) {
+    String reversed = "";
+    for(int i = arg.length()-1; i >= 0; i--) {
+        reversed+=""+arg.charAt(i);
+    }
+    return reversed;
+}
+
+How to make sure it's working as expected?
+
+String expected = "tac";
+String word = "cat";
+
+if reverseString(word).equals(expected)
+if yes (true) - then test passed, if no (false) - then test failed.
+
+What's the role of TestNG over here?
+TestNG is a unit, integration, e2e (end to end), etc... testing framework.
+
+Before TestNG, there was Junit which was only unit testing framework.
+Still, Junit is more popular.
+
+Why do we use TestNG with Selenium?
+We can create test scripts as methods.
+
+So in  TestNG, test looks like this:
+
+@Test
+public void test() {
+
+}
+
+TestNG has a report, xml runners, it supports DDT (Data Driven Testing),
+test priorities, test dependencies, parametrization of test,
+a lot of annotations to configure test suite execution, etc...
+
+How to add TestNG?
+It's just another library.
+We can add it manually, or add maven dependency.
+
+If assertion fails, it will stop the program.
+And you will see everything is red in the console.
+If it's green, that everything is good and test passed.
+
+===============================================
+Default Suite
+Total tests run: 1, Passes: 1, Failures: 0, Skips: 0
+===============================================
+
+For every feature/page of the application we can create a test class.
+Let's say LoginTests.
+Then for every test case we can create a separate test method.
+
+assertEquals() - to check if 2 things are the same
+assertTrue() - to check if something is true.
+
+In both cases, if there is some mismatch (should be true, but false;
+must be equals but not equals) test will stop, and test will be marked a failed.
+Also, in the console, you can see where it failed.
+
+If test fails, why driver.quit() doesn't work?
+Because program stops, and it doesn't reach driver.quit() line,
+because assertion stops program (in case of failure).
