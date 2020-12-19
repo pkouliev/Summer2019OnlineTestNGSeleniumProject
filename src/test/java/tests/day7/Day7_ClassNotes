@@ -1,0 +1,102 @@
+Warm up task:
+
+Let's go to cybertekschool.com
+And find number of links
+
+findElement vs findElements
+
+findElement = only 1 element
+in case of findElement if there is no element found, there will be exception
+NoSuchElementException
+
+findElements = 0 or more elements
+if findElements list is empty, that means there are no elements present
+we can verify there are no elements
+
+//a[.='text'] or //a[text()='text'] - find link with text name Home
+
+
+CSS locator:
+
+Syntax: [Attribute='Value']
+
+1. index.html
+2. style.css
+3. function.js
+
+css example:
+
+input {
+    font-family: Helvetica
+    background-color: blue;
+    margin: 0;
+}
+
+body {
+    height: 100px;
+    padding: 0;
+}
+
+Basic CSS selector:
+tagName[attribute='value']
+no //, no @
+
+xpath would like:
+//tagName[@attribute='value']
+
+CSS # sign, locating by the value of ID
+elementName#valueofAttribute
+#valueofID
+#id - means find element with id
+
+also, it works like: [id='value']
+
+For class name:
+
+.className - means find element with class name
+also works like this: [class='className']
+
+if class name has a space, that means you need to put
+. in between. Because, space in the class,
+it's delimiter for different classes
+
+[attribute='value'][attribute='value'] - to specify 2 attributes
+
+contains in Css selector:
+put * after attribute
+
+[attribute*='value'] - value can be partial,
+same like //*[contains(@attribute,'value')] in xpath
+
+Css example: [id*='d'], means that some element contains d in the id value
+
+to match beginning of the attribute value, we use caret: ^ symbol after attribute name.
+
+Css: End of the attribute:
+[attribute$='end_of_value'] - $ means attribute value's ending part
+
+* - contains
+^ - starts with
+$ - ends with
+
+Moving from parent to child element in Css selector:
+"space" or ">"
+
+Difference between space and > ?
+space in between mean any child (can be grand, or grand grand child)
+> means only direct child.
+
+.value > tag - means find element with tag name, that has direct
+parent with attribute value
+
+parent > child
+
+
+
+
+
+
+
+
+
+
