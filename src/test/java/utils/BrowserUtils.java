@@ -12,7 +12,7 @@ public class BrowserUtils {
     public static void wait(int seconds) {
 
         try {
-            Thread.sleep(1000 * seconds);
+            Thread.sleep(1000L * seconds);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -27,5 +27,10 @@ public class BrowserUtils {
             return new FirefoxDriver();
         }
         return null;
+    }
+
+    public static void space() {
+
+        System.out.println("\n================================================================================================\n");
     }
 }
