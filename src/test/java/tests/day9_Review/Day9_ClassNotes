@@ -1,0 +1,27 @@
+Only @Test annotation is required. Everything else is optional.
+
+@BeforeMethod and @AfterMethod run always before and after every test.
+
+@BeforeSuite runs as pre-condition for entire test suite. Test suite can include tests from multiple test classes.
+
+@DataProvider helps to run same test with different sets of data.
+
+
+<div>
+    <input type="radio" name = "color">
+    <label>Blue</label>
+</div>
+
+input and label are siblings.
+
+//*[text()='Blue']/.. - to go to the parent element - div
+
+//*[text()='Blue']/preceding-sibling::input - go to input,
+    that is on top
+
+
+//input[@type='radio']/following-sibling::label - go to label.
+    that is on bottom.
+
+/following-sibling::tagName/*
+/preceding-sibling::tagName/*
