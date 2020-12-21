@@ -20,7 +20,6 @@ public class TestNG_Review {
         BrowserUtils.wait(1);
         assert driver != null;
         driver.manage().window().maximize();
-
     }
 
     // priority will change the order of test execution
@@ -43,7 +42,6 @@ public class TestNG_Review {
         System.out.println("Test passed!");
     }
 
-
     @Test(description = "Verify title of apple.com", priority = 1)
     public void test2() {
         System.out.println("Test 2: Verify title of apple.com");
@@ -54,8 +52,6 @@ public class TestNG_Review {
         Assert.assertEquals(actualTitle, expectedTitle,
                 "Title is not correct");
         System.out.println("Test passed!");
-
-
     }
 
     @AfterMethod
