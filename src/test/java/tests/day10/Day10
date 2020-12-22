@@ -1,0 +1,49 @@
+Agenda:
+
+    Windows, how to switch in between windows/tabs
+    Frames
+    File uploading
+    Alerts/Pop-ups
+
+    driver.switchTo().window(windowHandle);
+        - in this way we can switch to another window
+
+    window handle - it's like window id
+
+    // Set can store only unique values
+    // getWindowHandles() return collection
+    // of window id's that are currently opened by WebDriver
+
+        //Set can store only unique values
+    Set<String> windowHandles = driver.getWindowHandles();
+
+    String pageTitle = "Practice"; // title of the original page that we want
+
+            for(String windowHandle : windowHandles) {
+                // keep switching from window to window
+
+                driver.switchTo().window(windowHandle);
+
+                // once the page title of the window matches what we need
+                if (driver.getTitle().equals(pageTitle)) {
+                    // just exit the loop
+                    // stop switching
+                    break;
+                }
+            }
+
+    // to open new blank tab
+    driver.findElement(By.cssSelector("body")).sendKeys(Keys.Control + "t");
+
+    // switching Set to List
+    List<String> tabs = new ArrayList<>(driver.getWindowHandles());
+    driver.switchTo().window(tabs.get(0));
+
+
+    to open something in the new window use command + left click
+
+    ##################################
+
+    How to upload file in Selenium?
+
+    .sendKeys("path/to/the/file.txt")
