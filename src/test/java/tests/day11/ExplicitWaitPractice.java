@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -14,12 +15,15 @@ import org.testng.annotations.Test;
 import utils.BrowserUtils;
 
 import java.time.Duration;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 public class ExplicitWaitPractice {
 
     private WebDriver driver;
-    private WebDriverWait wait;
+    private Wait<WebDriver> wait;
+    private Wait<WebDriver> wait2;
 
     @BeforeMethod
     public void setup() {
@@ -120,26 +124,21 @@ public class ExplicitWaitPractice {
     @Test(description = "FluentWait example")
     public void test3() {
         driver.findElement(By.partialLinkText("Example 2")).click();
-//        wait2 = new FluentWait(driver)
-//                .withTimeout(Duration.ofSeconds(10))
-//                .pollingEvery(Duration.ofMillis(200))
-//                .ignoring(ElementNotVisibleException.class);
+        driver.findElement(By.tagName("button")).click();
 
 
-        WebElement start = driver.findElement(By.id("start"));
-        //wait2.until(ExpectedConditions.elementToBeClickable(start));
-        start.click();
+        wait2 = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofMillis(200))
+                .ignoring(NoSuchElementException.class)
+                .ignoring(ElementNotVisibleException.class);
+
 
         WebElement finish = driver.findElement(By.id("finish"));
-        finish.click();
 
-//        WebElement message = wait2.until(new Function<WebDriver, WebElement>() {
-//            @Override
-//            public WebElement apply(WebDriver driver) {
-//                return message;
-//            }
-//        }
-//        );
+        WebElement message = wait2.until(driver -> finish);
+
+        System.out.println(message.getText());
     }
 
     @AfterMethod
