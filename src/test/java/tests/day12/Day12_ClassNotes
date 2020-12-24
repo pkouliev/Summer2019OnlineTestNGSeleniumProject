@@ -1,0 +1,91 @@
+Agenda:
+    Frames
+    Actions class
+    JS executor
+    git/GitHub
+
+    git add, commit, push, pull, fetch, merge, clone
+
+#####################################################
+
+GIT - is a version control tool
+
+what does it mean version control?
+
+In the simple words, git is a technology that helps you to track
+changes in your project/code.
+
+Git also help to collaborate.
+Main version of the code resides in the remote repository.
+In our case - GitHub.
+Then anyone who wants to collaborate can get a copy of that project.
+
+Git tacks changes and shows what and when was changed by whom.
+
+Git vs GitHub?
+Git - a VCS (Version Control System)  tool
+GitHub - a storage tool for Git projects.
+Github is like a smart google drive that targets git projects.
+
+GitHub is not only one available solution.
+There are other like BitBucket which also works with Git.
+BitBucket is from same developers as a Jira.
+
+How we can see history of changes in git project?
+
+Check commits
+
+Every commit it's like a snapshot, you want to do a
+snapshot to capture changes.
+
+class Person {
+    int age;
+}
+
+commit1: "First commit"
+
+class Person {
+    int age;
+    String name;
+}
+
+commit2: "Added string variable name"
+
+class Person {
+    int age;
+    String name;
+    String address;
+}
+
+commit3: "Added address variable"
+
+Why do we keep project on github?
+Because it's not secured to have only one place for saving.
+It's more secured to have back up.
+Also, github will help to collaborate multiple on the same project.
+
+File --> new --> project
+
+Select Maven project
+
+Click next
+
+group id: com.gitpractice
+artifact id: Summer2019GitPractice
+
+Select "Enable auto-import"
+
+src --> main --> java
+create package "java_code"
+Then create a class "Person"
+
+Step 1. git init
+Initialized empty git repository....
+
+Step 2. Right click on the project and create .gitignore file.
+This file will contain list of files/folders that shouldn't be committed.
+Like target, .idea
+
+
+
+
