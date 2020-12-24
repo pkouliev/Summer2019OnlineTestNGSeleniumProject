@@ -17,7 +17,6 @@ import utils.BrowserUtils;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
 
 public class ExplicitWaitPractice {
 
