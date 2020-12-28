@@ -15,17 +15,19 @@ public class ConfigurationReader {
 
     static {
         try {
+            String path = System.getProperty("user.dir") + "/configuration.properties";
             // provides access to file
             // try/catch block stands for handling exceptions
             // if exception occurs, code inside a catch block will be executed
             // any class that is related to InputOutput produce checked exception
             // without handling checked exception, you cannot run a code
-            FileInputStream fileInputStream = new FileInputStream("configuration.properties");
+            FileInputStream input = new FileInputStream(path);
 
             // initialize properties object
             configFile = new Properties();
             // load configuration.properties file
-            configFile.load(fileInputStream);
+            configFile.load(input);
+            input.close();
 
         } catch (IOException e) {
             System.out.println("Failed to load properties file!");
