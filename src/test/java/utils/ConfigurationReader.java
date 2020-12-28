@@ -12,6 +12,7 @@ public class ConfigurationReader {
     // will provide access to values based on key names
     // we use this class to load custom .properties files
     private static Properties configFile;
+    private static FileInputStream input;
 
     static {
         try {
@@ -21,12 +22,13 @@ public class ConfigurationReader {
             // if exception occurs, code inside a catch block will be executed
             // any class that is related to InputOutput produce checked exception
             // without handling checked exception, you cannot run a code
-            FileInputStream input = new FileInputStream(path);
+            input = new FileInputStream(path);
 
             // initialize properties object
             configFile = new Properties();
             // load configuration.properties file
             configFile.load(input);
+            // close input stream
             input.close();
 
         } catch (IOException e) {
