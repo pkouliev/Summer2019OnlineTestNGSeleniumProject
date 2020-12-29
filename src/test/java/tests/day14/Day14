@@ -1,0 +1,124 @@
+Agenda:
+    Properties file
+    Driver class
+    Test Base Class
+
+################################
+
+We use configuration.properties file for project configuration.
+
+In this file, we usually store URL's
+
+env = environment
+
+dev env        ->    qa env     |  another env  ->  preproduction env -> production env
+
+dev.vytrack.com, qa.vytrack.com, qa2.vytrack.com,  preprod.vytrack.com,    vytrack.com
+
+Every environment has a different link (URL sites). And to manage these links better, we store them in the config file
+
+Also we store credentials, data based configuration info, some wait time (for explicit wait)
+
+If key name is wrong, we will get -> "null"
+
+
+####################configuration.properties file example
+
+#key=value, it's like a Map in java
+#BROWSER TYPE | it's a comment
+browser=chrome
+
+#URL OF OUR WEB APPLICATION
+url=https://qa1.vytrack.com/
+
+#CREDENTIALS
+user_name=storemanager85
+password=UserUser123
+
+
+#################### Configuration class that accesses configuration.properties file and returns values based on key names
+
+// ConfigurationReader.configFile.getValue("browser") - direct access
+// ConfigurationReader.getValue("browser")
+
+
+public class ConfigurationReader {
+    // this class will be responsible for loading properties file and
+    // will provide access to values based on key names
+    // we use this class to load custom .properties files
+    private static Properties configFile;
+    private static FileInputStream input;
+
+    static {
+        try {
+            String path = System.getProperty("user.dir") + "/configuration.properties";
+            // provides access to file
+            // try/catch block stands for handling exceptions
+            // if exception occurs, code inside a catch block will be executed
+            // any class that is related to InputOutput produce checked exception
+            // without handling checked exception, you cannot run a code
+            input = new FileInputStream(path);
+
+            // initialize properties object
+            configFile = new Properties();
+            // load configuration.properties file
+            configFile.load(input);
+            // close input stream
+            input.close();
+
+        } catch (IOException e) {
+            System.out.println("Failed to load properties file!");
+            e.printStackTrace();
+        }
+    }
+
+    public static String getValue(String key) {
+        return configFile.getProperty(key);
+    }
+}
+
+###################################
+
+I believe it's not very cool to create new driver in every class.
+So what if we will have one central place, that will create driver.
+In this way, every test we will use same driver.
+We will make process of driver switch match easier.
+
+In OOP we have Design Patterns.
+It's a proven solution for specific task.
+
+One of the most popular design pattern for WebDriver in Selenium is Singleton.
+
+Singleton - means single object of something for entire project.
+
+What's point? This object will be static and we can ensure all tests use same driver.
+So we can create test suits.
+
+Also, whenever we need to use driver, we will just call it from Driver class.
+And it's gonna be same driver for everyone.
+
+Otherwise, new WebDriver object = new browser.
+With this design, driver will be shareable and easy to access.
+
+What are conventions of Singleton pattern?
+    - private static instance
+    - private constructor (to prevent class instantiation)
+    - public getter that returns private static instance
+
+class Driver() {
+    // only one private static instance
+    private static WebDriver driver;
+
+    // to prevent class instantiation
+    private Driver() {
+
+    }
+
+    public static WebDriver getDriver() {
+        // if object was not created yet - create it
+        if (driver == null) {
+            driver = new ChromeDriver();
+        }
+        return driver;
+    }
+}
