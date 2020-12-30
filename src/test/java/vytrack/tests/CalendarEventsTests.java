@@ -1,4 +1,4 @@
-package vytrack;
+package vytrack.tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -14,6 +14,21 @@ import utils.BrowserUtils;
 
 import java.util.concurrent.TimeUnit;
 
+/*
+Test data:
+
+https://qa1.vytrack.com/
+username: storemanager85
+password: UserUser123
+
+Test case #1
+
+    1. Go to https://qa1.vytrack.com/
+    2. Login as a store manager
+    3. Navigate to Activities -> Calendar Events
+    4. Verify that page subtitle "All Calendar Events" is displayed
+
+ */
 public class CalendarEventsTests {
     private WebDriver driver;
     private WebDriverWait wait;
