@@ -9,9 +9,9 @@ public class Driver {
     private static WebDriver driver;
 
     // you cannot do like this, if constructor is private Driver obj = new Driver()
-    private Driver() {
-
-    }
+//    private Driver() {
+//
+//    }
 
     // if switch statement complains on String parameter
     // change java version to the latest.
