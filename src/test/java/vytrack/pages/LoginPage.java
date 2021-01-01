@@ -2,9 +2,8 @@ package vytrack.pages;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import utils.Driver;
 
 // according to page object model design
 // we have to create corresponding page class
@@ -14,23 +13,27 @@ import utils.Driver;
 public class LoginPage extends BasePage {
 
     @FindBy(id = "prependedInput") // this line will initialize web element
+    @CacheLookup
     public WebElement userNameInput;
 
     @FindBy(id = "prependedInput2") // without @FindBy, web element will be null
+    @CacheLookup
     public WebElement passwordInput;
 
     @FindBy(id = "_submit")
+    @CacheLookup
     public WebElement loginButton;
 
     @FindBy(className = "alert alert-error")
+    @CacheLookup
     public WebElement warningMessage;
 
-    public LoginPage() {
-        // it's mandatory if you want to use @FindBy annotation
-        // this means LoginPage class
-        // Driver.getDriver() return WebDriver object
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
+//    public LoginPage() {
+//        // it's mandatory if you want to use @FindBy annotation
+//        // this means LoginPage class
+//        // Driver.getDriver() return WebDriver object
+//        PageFactory.initElements(driver, this);
+//    }
 
     /**
      * reusable login method
