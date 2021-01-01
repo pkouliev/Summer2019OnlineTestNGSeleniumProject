@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 // In this way before and after methods will be the same
 // Every test class will extend TestBase class
 public class TestBase extends Driver {
-    public WebDriver driver = Driver.getDriver();
+    public WebDriver driver = getDriver();
     public WebDriverWait wait = new WebDriverWait(driver, 10);
 
 
@@ -21,7 +21,7 @@ public class TestBase extends Driver {
         String url = ConfigurationReader.getValue("url");
         driver.get(url);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @AfterMethod
