@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.BrowserFactory;
 import utils.BrowserUtils;
 
 import java.util.concurrent.TimeUnit;
@@ -17,7 +18,7 @@ public class ImplicitWaitPractice {
 
     @BeforeMethod
     public void setup() {
-        driver = BrowserUtils.getDriver("chrome");
+        driver = BrowserFactory.getDriver("chrome");
         assert driver != null;
         // this line should be before all tests and findElement() methods
         // to wait within 10 seconds until the element is present

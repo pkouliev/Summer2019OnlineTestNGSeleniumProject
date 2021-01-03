@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.BrowserFactory;
 import utils.BrowserUtils;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class WebTablesPractice {
      */
     @BeforeMethod
     public void setup() {
-        driver = BrowserUtils.getDriver("chrome");
+        driver = BrowserFactory.getDriver("chrome");
         assert driver != null;
         wait = new WebDriverWait(driver, 15);
         driver.manage().window().maximize();

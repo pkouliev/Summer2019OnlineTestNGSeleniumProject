@@ -2,6 +2,7 @@ package tests.day6;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.BrowserFactory;
 import utils.BrowserUtils;
 
 public class BitrixLogin {
@@ -18,7 +19,7 @@ public class BitrixLogin {
         // left side is a reference variable to reuse this object
         // object can be created and used without reference variable,
         // but it's gonna be impossible to use that object more than once
-        WebDriver driver = BrowserUtils.getDriver("chrome");
+        WebDriver driver = BrowserFactory.getDriver("chrome");
         assert driver != null;
         driver.manage().window().maximize();
         BrowserUtils.wait(2);

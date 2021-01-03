@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.BrowserFactory;
 import utils.BrowserUtils;
 
 public class TestNG_Practice {
@@ -28,7 +29,7 @@ public class TestNG_Practice {
     @Test
     public WebDriver openSite() {
 
-        WebDriver driver = BrowserUtils.getDriver("chrome");
+        WebDriver driver = BrowserFactory.getDriver("chrome");
         assert driver != null;
         driver.manage().window().maximize();
         BrowserUtils.wait(1);
@@ -42,7 +43,7 @@ public class TestNG_Practice {
     @Test(description = "Verifying title on the practice website")
     public void verifyTitle() {
 
-        WebDriver driver = BrowserUtils.getDriver("chrome");
+        WebDriver driver = BrowserFactory.getDriver("chrome");
         assert driver != null;
         driver.manage().window().maximize();
         BrowserUtils.wait(1);

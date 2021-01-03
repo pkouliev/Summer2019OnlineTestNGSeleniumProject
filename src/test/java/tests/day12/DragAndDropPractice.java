@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
+import utils.BrowserFactory;
 import utils.BrowserUtils;
 
 import java.util.concurrent.TimeUnit;
@@ -13,7 +14,7 @@ public class DragAndDropPractice {
 
     @Test(description = "Drag and drop example")
     public void test1() {
-        WebDriver driver = BrowserUtils.getDriver("chrome");
+        WebDriver driver = BrowserFactory.getDriver("chrome");
         assert driver != null;
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();

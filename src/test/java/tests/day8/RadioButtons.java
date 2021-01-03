@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.BrowserFactory;
 import utils.BrowserUtils;
 
 import java.util.List;
@@ -17,14 +18,15 @@ public class RadioButtons {
 
     @BeforeMethod
     public void setup() {
-        driver = BrowserUtils.getDriver("chrome");
+        driver = BrowserFactory.getDriver("chrome");
         assert driver != null;
         BrowserUtils.wait(1);
         driver.get("http://practice.cybertekschool.com/");
         BrowserUtils.wait(1);
 
         // to go to Radio Buttons page
-        // <a href="/radio_buttons">Radio Buttons</a>
+        // <a href="/radio_
+        // buttons">Radio Buttons</a>
         // linkText locator works only with <a> elements
         // link text only in between >Text<
         // this step is common for all test cases

@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import utils.BrowserFactory;
 import utils.BrowserUtils;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class Dropdowns {
 
     @BeforeMethod
     public void setup() {
-        driver = BrowserUtils.getDriver("chrome");
+        driver = BrowserFactory.getDriver("chrome");
         assert driver != null;
         BrowserUtils.wait(1);
         driver.get("http://practice.cybertekschool.com/");

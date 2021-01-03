@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import utils.BrowserFactory;
 import utils.BrowserUtils;
 
 public class MulipleButtonsTests {
@@ -12,7 +13,7 @@ public class MulipleButtonsTests {
 
     @BeforeMethod
     public void setDriver() {
-        driver = BrowserUtils.getDriver("chrome");
+        driver = BrowserFactory.getDriver("chrome");
         assert driver != null;
         BrowserUtils.wait(1);
         driver.get("http://practice.cybertekschool.com/multiple_buttons");

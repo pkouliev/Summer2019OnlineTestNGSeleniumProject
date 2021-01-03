@@ -3,6 +3,7 @@ package tests.day7;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import utils.BrowserFactory;
 import utils.BrowserUtils;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public class CssSelectorPractice {
 
     public static void main(String[] args) {
 
-        WebDriver driver = BrowserUtils.getDriver("chrome");
+        WebDriver driver = BrowserFactory.getDriver("chrome");
         assert driver != null;
         driver.manage().window().maximize();
         BrowserUtils.wait(1);
