@@ -18,8 +18,7 @@ import java.util.NoSuchElementException;
 // so we can keep them here
 public abstract class BasePage extends TestBase {
 
-    @FindBy(css = "div[class='loader-mask shown']")
-    public WebElement loaderMask;
+
 
     @FindBy(xpath = "//*[@class='oro-subtitle']")
     private WebElement pageSubTitle;
@@ -33,40 +32,6 @@ public abstract class BasePage extends TestBase {
     @FindBy(linkText = "My User")
     public WebElement myUser;
 
-    public BasePage() {
-        // this method requires to provide WebDriver object for @FindBy and page class, including this class
-        PageFactory.initElements(driver, this);
-    }
-
-    /**
-     * While this loading screen present, html code is not complete
-     * Some elements can be missing
-     * Also, you won't be able to interact with any elements
-     * All actions will be intercepted
-     * Waits until loader mask (loading bar, spinning wheel) disappears
-     *
-     * @return true if loader mask is gone, false if it something went wrong
-     */
-    public boolean waitUntilLoaderMaskDisappear() {
-
-//        if (driver.findElements(By.cssSelector("div[class='loader-mask shown']")).size() > 0) {
-//
-//            //loaderMask = driver.findElement(By.cssSelector("div[class='loader-mask shown']"));
-//            wait.until(ExpectedConditions.invisibilityOf(loaderMask));
-//        }
-
-        try {
-            wait.until(ExpectedConditions.invisibilityOf(loaderMask));
-            return true;
-        } catch (NoSuchElementException e) {
-            System.out.println("Loader mask not found");
-            System.out.println(e.getMessage());
-            return true; // no loader mask, all good, return true
-        } catch (WebDriverException e) {
-            System.out.println(e.getMessage());
-        }
-        return false;
-    }
 
     /**
      * This method stands for navigation in vytrack app
@@ -81,11 +46,12 @@ public abstract class BasePage extends TestBase {
         String moduleLocator = "//a[normalize-space()='" + moduleName + "']";
         String subModuleLocator = "//a[normalize-space()='" + subModuleName + "']";
 
-        waitUntilLoaderMaskDisappear();
+        //waitUntilLoaderMaskDisappear();
         //wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(moduleLocator)));
 
         WebElement module = driver.findElement(By.xpath(moduleLocator));
         //wait.until(ExpectedConditions.visibilityOf(module));
+        waitUntilLoaderMaskDisappear();
         wait.until(ExpectedConditions.elementToBeClickable(module));
         wait.until(ExpectedConditions.textToBePresentInElement(module, moduleName));
         module.click(); // once we clicked on module, submodule should be visible
