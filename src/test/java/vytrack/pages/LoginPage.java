@@ -4,6 +4,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+import utils.ConfigurationReader;
 
 // according to page object model design
 // we have to create corresponding page class
@@ -46,6 +47,15 @@ public class LoginPage extends BasePage {
         userNameInput.sendKeys(userName);
         // Keys.ENTER to replace login button click
         passwordInput.sendKeys(password, Keys.ENTER);
+    }
+
+    String userNameQA1 = ConfigurationReader.getValue("user_name");
+    String passwordQA1 = ConfigurationReader.getValue("password");
+
+    public void loginQA1() {
+        userNameInput.sendKeys(userNameQA1);
+        // Keys.ENTER to replace login button click
+        passwordInput.sendKeys(passwordQA1, Keys.ENTER);
     }
 
 }
