@@ -8,7 +8,11 @@ public class NewCalendarEventsTests extends CalendarEventsPage {
 
     @Test(description = "Verify that page subtitle equals to 'All Calendar Events'")
     public void test1() {
-        login("storemanager85", "UserUser123");
+        // this step is required for every test
+        // otherwise you will get nullpointer exception
+        // you must create a test at the beginning
+        extentTest = extentReports.createTest("Verify that page subtitle equals to 'All Calendar Events'");
+        loginQA1();
         navigateTo("Activities", "Calendar Events");
 
         String expectedSubtitle = "All Calendar Events";
@@ -16,5 +20,7 @@ public class NewCalendarEventsTests extends CalendarEventsPage {
 
         Assert.assertEquals(actualSubTitle, expectedSubtitle, "Test Failed. Subtitles don't match");
         System.out.println("Actual Subtitle: " + actualSubTitle);
+
+        extentTest.pass("Verified that page subtitle 'All Calendar Events' is displayed");
     }
 }
