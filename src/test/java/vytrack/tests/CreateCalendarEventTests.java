@@ -10,7 +10,7 @@ public class CreateCalendarEventTests extends CreateCalendarEventPage {
     public void test1() {
 
         // login as Stephan Tremaine Haley (storemanager85)
-        login("storemanager85", "UserUser123");
+        loginQA1();
 
         //go to calendar events page
         navigateTo("Activities", "Calendar Events");
