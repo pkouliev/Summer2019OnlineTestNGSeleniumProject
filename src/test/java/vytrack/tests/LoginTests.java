@@ -17,7 +17,8 @@ public class LoginTests extends LoginPage {
         //LoginPage loginPage = new LoginPage();
 
         // provide userName and password
-        login("storemanager85", "UserUser123");
+        //login("storemanager85", "UserUser123");
+        loginQA1();
 
         // this is an explicit wait
         // it waits until title is 'Dashboard'
