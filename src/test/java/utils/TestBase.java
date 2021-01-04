@@ -15,7 +15,7 @@ import java.io.IOException;
 // we will put here only before and after parts
 // In this way before and after methods will be the same
 // Every test class will extend TestBase class
-public class TestBase extends BrowserUtils {
+public abstract class TestBase {
 
 
     /*
@@ -54,8 +54,8 @@ public class TestBase extends BrowserUtils {
     @BeforeMethod
     public void setup() {
         String url = ConfigurationReader.getValue("url");
-        driver.get(url);
-        driver.manage().window().maximize();
+        Driver.getDriver().get(url);
+        Driver.getDriver().manage().window().maximize();
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
@@ -70,7 +70,7 @@ public class TestBase extends BrowserUtils {
                 // getScreenshot(result.getName() - takes screenshot and returns location of that screenshot
                 // this method throws IOException (which is checked exception)
                 // any checked eception must be handled immediately
-                extentTest.addScreenCaptureFromPath(getScreenshot(result.getName()));
+                extentTest.addScreenCaptureFromPath(BrowserUtils.getScreenshot(result.getName()));
             } catch (IOException e) {
                 // print error info
                 e.printStackTrace();
