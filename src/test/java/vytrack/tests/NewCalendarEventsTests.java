@@ -2,25 +2,26 @@ package vytrack.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import vytrack.pages.CalendarEventsPage;
+import utils.TestBase;
+import vytrack.pages.LoginPage;
 
-public class NewCalendarEventsTests extends CalendarEventsPage {
+public class NewCalendarEventsTests extends TestBase {
 
-    @Test(description = "Verify that page subtitle equals to 'All Calendar Events'")
+    @Test(description = "Verify that page subtitle is equals to 'All Calendar Events'")
     public void test1() {
-        // this step is required for every test
-        // otherwise you will get nullpointer exception
-        // you must create a test at the beginning
-        extentTest = extentReports.createTest("Verify that page subtitle equals to 'All Calendar Events'");
-        loginQA1();
-        navigateTo("Activities", "Calendar Events");
+        extentTest = extentReports.createTest("Verify that page subtitle is equals to 'All Calendar Events'");
+        LoginPage loginPage = new LoginPage(); //login page object
+
+        loginPage.loginQA1();
+        loginPage.navigateTo("Activities", "Calendar Events");
 
         String expectedSubtitle = "All Calendar Events";
-        String actualSubTitle = getPageSubTitle(expectedSubtitle);
+        String actualSubTitle = loginPage.getPageSubTitle(expectedSubtitle);
 
-        Assert.assertEquals(actualSubTitle, expectedSubtitle, "Test Failed. Subtitles don't match");
-        System.out.println("Actual Subtitle: " + actualSubTitle);
-
+        Assert.assertEquals(actualSubTitle, expectedSubtitle);
         extentTest.pass("Verified that page subtitle 'All Calendar Events' is displayed");
     }
+
+
 }
+
