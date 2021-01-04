@@ -2,7 +2,6 @@ package vytrack.pages;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import utils.ConfigurationReader;
 
@@ -14,20 +13,17 @@ import utils.ConfigurationReader;
 public class LoginPage extends BasePage {
 
     @FindBy(id = "prependedInput") // this line will initialize web element
-    @CacheLookup
     public WebElement userNameInput;
 
     @FindBy(id = "prependedInput2") // without @FindBy, web element will be null
-    @CacheLookup
     public WebElement passwordInput;
 
     @FindBy(id = "_submit")
-    @CacheLookup
     public WebElement loginButton;
 
     @FindBy(className = "alert alert-error")
-    @CacheLookup
     public WebElement warningMessage;
+
 
 //    public LoginPage() {
 //        // it's mandatory if you want to use @FindBy annotation
@@ -57,5 +53,6 @@ public class LoginPage extends BasePage {
         // Keys.ENTER to replace login button click
         passwordInput.sendKeys(passwordQA1, Keys.ENTER);
     }
+
 
 }
