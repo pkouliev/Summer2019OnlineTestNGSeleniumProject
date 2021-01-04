@@ -8,27 +8,24 @@ import utils.ConfigurationReader;
 import utils.Driver;
 
 public class LoginTest extends TestBase {
-
     @Ignore
     @Test
     public void test1() {
-
-        // read url value from the properties file
+        //read url value from the properties file
         String url = ConfigurationReader.getValue("url");
-
-        // Driver.get() -> will return WebDriver object
-        // and then we can call WebDriver methods like get(), findElement()....
-        //WebDriver driver = Driver.getDriver(); // same as below
-        driver.get(url);
-        // print page title
-        System.out.println(driver.getTitle());
+        //Driver.get() --> will return webdriver object
+        //and then we can call webdriver methods like get(), findElement()...
+        //WebDriver driver = Driver.get();driver.get("url);
+        Driver.getDriver().get(url);
+        //print page title
+        System.out.println(Driver.getDriver().getTitle());
         BrowserUtils.wait(2);
         Driver.close();
     }
 
     @Test
     public void test2() {
-        System.out.println(driver.getTitle());
+        System.out.println(Driver.getDriver().getTitle());
         BrowserUtils.wait(2);
     }
 }
