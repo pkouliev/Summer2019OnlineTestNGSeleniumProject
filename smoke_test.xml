@@ -2,6 +2,7 @@
 <suite name="Smoke test">
     <test name="Smoke test">
         <parameter name="test" value="smoke test"></parameter>
+        <parameter name="env_url" value="https://qa1.vytrack.com/"></parameter>
         <classes>
             <class name="vytrack.tests.SmokeTest"/>
         </classes>
