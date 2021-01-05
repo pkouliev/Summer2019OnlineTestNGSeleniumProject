@@ -117,6 +117,9 @@ public class BasePage {
             BrowserUtils.clickWithTimeOut(Driver.getDriver().findElement(By.xpath(subModuleLocator)), 5);
         }
 
+        // it waits until page is loaded and ajax calls are gone
+        BrowserUtils.waitForPageToLoad(5);
+
     }
 
     /**
