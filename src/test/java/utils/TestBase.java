@@ -2,7 +2,7 @@ package utils;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
@@ -23,19 +23,25 @@ public abstract class TestBase {
      */
     protected static ExtentReports extentReports;
     // The ExtentSparkReporter creates a rich standalone spark file.
-    protected static ExtentSparkReporter extentSparkReporter;
+    protected static ExtentHtmlReporter extentHtmlReporter;
     // Defines a test. You can add logs, snapshots, assign author and categories to a test and its children.
     protected static ExtentTest extentTest;
 
+    //      <parameter name="test" value="regression"></parameter>
     @BeforeTest
-    public void beforeTest() {
+    @Parameters("test")
+    public void beforeTest(@Optional String test) {
         // location of report
         // it's gonna be next to target folder, test-output folder
-        String filePath = System.getProperty("user.dir") + "/test-output/report.html";
+        String reportName = "report";
+        if (test != null) {
+            reportName = test;
+        }
+        String filePath = System.getProperty("user.dir") + "/test-output/" + reportName + ".html";
         extentReports = new ExtentReports();
-        extentSparkReporter = new ExtentSparkReporter(filePath);
-        extentReports.attachReporter(extentSparkReporter);
-        extentSparkReporter.config().setReportName("Vytrack Test Results");
+        extentHtmlReporter = new ExtentHtmlReporter(filePath);
+        extentReports.attachReporter(extentHtmlReporter);
+        extentHtmlReporter.config().setReportName("Vytrack Test Results");
         extentReports.setSystemInfo("Environment", "QA1");
         extentReports.setSystemInfo("Browser", ConfigurationReader.getValue("browser"));
         extentReports.setSystemInfo("OS", System.getProperty("os.name"));
