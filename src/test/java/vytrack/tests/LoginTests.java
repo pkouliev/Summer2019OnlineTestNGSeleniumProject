@@ -1,7 +1,10 @@
 package vytrack.tests;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.BrowserUtils;
 import utils.ConfigurationReader;
 import utils.Driver;
 import utils.TestBase;
@@ -27,6 +30,8 @@ public class LoginTests extends TestBase {
         wait.until(ExpectedConditions.titleIs("Dashboard"));
         */
         //verification page
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+        wait.until(ExpectedConditions.titleIs("Dashboard"));
         Assert.assertEquals(Driver.getDriver().getTitle(), "Dashboard");
     }
 }
