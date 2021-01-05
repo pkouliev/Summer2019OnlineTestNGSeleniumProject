@@ -55,8 +55,14 @@ public abstract class TestBase {
 
 
     @BeforeMethod
-    public void setup() {
+    @Parameters("env_url")
+    public void setup(@Optional String env_url) {
         String url = ConfigurationReader.getValue("url");
+        // if name parameter was set, then use it.
+        // if it's null that means it was not set
+        if (env_url != null) {
+            url = env_url;
+        }
         Driver.getDriver().get(url);
         Driver.getDriver().manage().window().maximize();
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
