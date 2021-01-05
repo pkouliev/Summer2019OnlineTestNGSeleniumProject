@@ -124,6 +124,7 @@ public class BasePage {
      */
     public String getPageSubTitle(String subTitle) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+        waitUntilLoaderMaskDisappear();
         wait.until(ExpectedConditions.textToBePresentInElement(pageSubTitle, subTitle));
         return pageSubTitle.getText().trim();
     }
