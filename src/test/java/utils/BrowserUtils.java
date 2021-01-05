@@ -122,8 +122,8 @@ public class BrowserUtils {
      * @param webElement of element
      */
     public static void clickWithWait(WebElement webElement) {
-        Wait wait;
-        wait = new FluentWait(Driver.getDriver())
+
+        Wait wait = new FluentWait<>(Driver.getDriver())
                 .withTimeout(Duration.ofSeconds(15))
                 .pollingEvery(Duration.ofMillis(200))
                 .ignoring(NoSuchElementException.class)
