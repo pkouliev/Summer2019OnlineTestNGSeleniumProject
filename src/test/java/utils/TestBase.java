@@ -29,8 +29,8 @@ public abstract class TestBase {
 
     //      <parameter name="test" value="regression"></parameter>
     @BeforeTest
-    @Parameters("test")
-    public void beforeTest(@Optional String test) {
+    @Parameters({"test", "env_url"})
+    public void beforeTest(@Optional String test, @Optional String env_url) {
         // location of report
         // it's gonna be next to target folder, test-output folder
         String reportName = "report";
@@ -42,7 +42,12 @@ public abstract class TestBase {
         extentHtmlReporter = new ExtentHtmlReporter(filePath);
         extentReports.attachReporter(extentHtmlReporter);
         extentHtmlReporter.config().setReportName("Vytrack Test Results");
-        extentReports.setSystemInfo("Environment", "QA1");
+        // system information
+        String env = ConfigurationReader.getValue("url");
+        if (env_url != null) {
+            env = env_url;
+        }
+        extentReports.setSystemInfo("Environment", env);
         extentReports.setSystemInfo("Browser", ConfigurationReader.getValue("browser"));
         extentReports.setSystemInfo("OS", System.getProperty("os.name"));
     }
