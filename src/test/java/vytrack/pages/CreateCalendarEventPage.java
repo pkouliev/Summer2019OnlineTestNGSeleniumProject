@@ -14,6 +14,6 @@ public class CreateCalendarEventPage extends BasePage {
     public String getOwnerName(String ownerName) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
         wait.until(ExpectedConditions.textToBePresentInElement(owner, ownerName));
-        return owner.getText();
+        return owner.getText().trim();
     }
 }
