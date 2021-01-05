@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Smoke test">
+    <test name="Smoke test">
+        <parameter name="test" value="smoke test"></parameter>
+        <classes>
+            <class name="vytrack.tests.SmokeTest"/>
+        </classes>
+    </test>
+</suite>
