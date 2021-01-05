@@ -1,4 +1,4 @@
-package vytrack;
+package vytrack.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
