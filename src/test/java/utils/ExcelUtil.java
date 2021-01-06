@@ -54,8 +54,7 @@ public class ExcelUtil {
         Cell cell;
         try {
             cell = workSheet.getRow(rowNum).getCell(colNum);
-            String cellData = cell.toString();
-            return cellData;
+            return cell.toString();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -74,7 +73,28 @@ public class ExcelUtil {
             }
         }
         return data;
+    }
 
+    public String[][] getDataArrayData() {
+
+        String[][] data = new String[rowCount() - 1][columnCount()];
+
+        for (int i = 0; i < rowCount() - 1; i++) {
+            for (int j = 0; j < columnCount(); j++) {
+                String value = getCellData(i + 1, j);
+                data[i][j] = value;
+            }
+        }
+        return data;
+    }
+
+    public List<String> getColumnsNames() {
+        List<String> columns = new ArrayList<>();
+
+        for (Cell cell : workSheet.getRow(0)) {
+            columns.add(cell.toString());
+        }
+        return columns;
     }
 
     public List<Map<String, String>> getDataList() {
@@ -87,7 +107,7 @@ public class ExcelUtil {
             // get each row
             Row row = workSheet.getRow(i);
             // create map of the row using the column and value
-            // column map key, cell value --> map bvalue
+            // column map key, cell value --> map value
             Map<String, String> rowMap = new HashMap<>();
             for (Cell cell : row) {
                 int columnIndex = cell.getColumnIndex();
@@ -98,15 +118,6 @@ public class ExcelUtil {
         }
 
         return data;
-    }
-
-    public List<String> getColumnsNames() {
-        List<String> columns = new ArrayList<>();
-
-        for (Cell cell : workSheet.getRow(0)) {
-            columns.add(cell.toString());
-        }
-        return columns;
     }
 
     public void setCellData(String value, int rowNum, int colNum) {
