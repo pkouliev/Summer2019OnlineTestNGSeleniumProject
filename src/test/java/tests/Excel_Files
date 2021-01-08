@@ -1,0 +1,57 @@
+Operations with excel files:
+
+To connect java code with excel files we use Apache POI library, means that it's free.
+Since we cannot open excel file without special decoding, we have to use library that can do it for us.
+
+#To open excel file, we need to do few things:
+    - first of all, open file through FileInputStream
+        FileInputStream fileInputStream = new FileInputStream("path/to/the/file.xlsx);
+
+    - Then, we have to use workbook to create object of excel file.
+        Workbook workbook = WorkbookFactory.create(fileInputStream);
+
+        * Creates the appropriate HSSWorkbook / XSSWorkbook from the given fileInputStream
+
+We use WorkbookFactory, because it can open both type of excel files .xls (old) and .xlsx (new).
+
+    workbook = excel file
+
+# Next step is to open spreadsheet, because excel file can have multiple spreadsheets.
+    It's like book can have multiple pages.
+
+Sheet workSheet = workbook.getSheet("name_off_sheet);
+
+#Then, since excel file it's a table, and table consists of rows and cells, we need to open Row first.
+
+Row row = workSheet.getRow(0);
+
+#Every row consists of cells, to get data from row, we need to use Cell
+
+Cell cell = row.getCell(1);
+
+################################################################################
+
+workbook -> worksheet -> row -> cell
+
+################################################################################
+
+In test automation, excel files are very popular for storing test data.
+If we combine excel file with data provider we can do data driven testing.
+To do so, we have to open some file, and return info as 2D array.
+
+We use DataProvider only to execute same test many times with different data sets.
+
+DataProvider is not required to use along with Apache POI.
+It was our test case, that requires to login many times with different credentials.
+As many rows in excel spreadsheet, as many times same test will be executed.
+
+################################################################################
+
+java.lang.IllegalArgumentException: Keys to send should be a not null CharSequence
+
+If you are trying to read data from map, and key name is wrong, you will get null.
+
+Then, if you are trying to use sendKeys() with null, you will get above exception.
+
+################################################################################
+
