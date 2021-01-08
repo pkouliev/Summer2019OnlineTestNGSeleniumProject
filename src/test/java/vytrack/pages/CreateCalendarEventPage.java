@@ -237,4 +237,10 @@ public class CreateCalendarEventPage extends BasePage {
     public String getEndTime() {
         return endTime.getAttribute("value");
     }
+
+    public static void main(String[] args) {
+        System.out.println(LocalDate.now());
+        System.out.println(LocalTime.now());
+        System.out.println(LocalDateTime.now());
+    }
 }
