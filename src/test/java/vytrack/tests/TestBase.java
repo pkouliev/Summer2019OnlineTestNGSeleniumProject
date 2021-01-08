@@ -1,10 +1,13 @@
-package utils;
+package vytrack.tests;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import utils.BrowserUtils;
+import utils.ConfigurationReader;
+import utils.Driver;
 
 import java.io.IOException;
 
