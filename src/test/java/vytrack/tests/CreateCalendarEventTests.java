@@ -4,7 +4,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.Driver;
-import utils.TestBase;
 import vytrack.pages.CalendarEventsPage;
 import vytrack.pages.CreateCalendarEventPage;
 import vytrack.pages.LoginPage;

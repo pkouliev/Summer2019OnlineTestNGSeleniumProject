@@ -2,7 +2,6 @@ package vytrack.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utils.TestBase;
 import vytrack.pages.LoginPage;
 
 public class NewCalendarEventsTests extends TestBase {

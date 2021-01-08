@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.ConfigurationReader;
 import utils.Driver;
-import utils.TestBase;
 import vytrack.pages.LoginPage;
 
 //we write extends tests.TestBase to inherits @before and @after methods

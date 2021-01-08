@@ -3,7 +3,6 @@ package vytrack.tests;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import utils.TestBase;
 import vytrack.pages.LoginPage;
 
 public class SmokeTest extends TestBase {
