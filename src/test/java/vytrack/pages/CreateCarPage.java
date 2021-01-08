@@ -30,6 +30,12 @@ public class CreateCarPage extends BasePage {
     // if above locators don't work, use [id^=' uniform-custom_entity_type_Logo_file'] > span[class='action']
     public WebElement logoElement;
 
+    @FindBy(name = "custom_entity_type[ModelYear]")
+    public WebElement modelYearElement;
+
+    @FindBy(name = "custom_entity_type[Color]")
+    public WebElement colorElement;
+
 
     /**
      * This method stands for selecting tags
