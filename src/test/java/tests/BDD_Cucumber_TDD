@@ -1,0 +1,122 @@
+Today is 12/16/2019
+
+    Agenda: BDD (Behavior Driven Development)
+            CUCUMBER as BDD tool
+            TDD (Test Driven Development)
+
+    New framework will be based on | Cucumber + Selenium + Junit |
+
+    #################################################################
+
+    A combination of:
+    Data Driven Framework + Page Object Model framework
+    also called hybrid framework.
+
+    When we create corresponding page classes for all pages of application,
+    we call it Page Object Model (design pattern).
+    Since we implement this design into out framework,
+    our framework becomes Page Object Model framework.
+
+    On top of that, we store test data not in java classes (like String variables)
+    we keep it outside, for example in excel files, csv, json or any other files.
+
+    In our framework, we use excel files for storing test data.
+    To read that data we use Apache POI.
+
+    There are also other frameworks:
+            - Keyword Driven Framework - store test steps and actions in external file
+                                         for example excel:
+
+                                            TEST_001:
+                                                Open "google.com"
+                                                verify title "Google"
+                                                Enter "java book"
+                                                click on "search"
+                                                verify search item is displayed
+
+   By changing keywords, we are changing test flow.
+   In case of DDT we are changing test data only.
+
+   #####################################################################################
+
+   Module Based Testing Framework (Modular)
+
+        It's like Page Object Model, but more for tests.
+        We are breaking down (group) tests based on module names.
+
+        Example based on Vytrack website:
+
+            tests
+                fleet
+                    VehicleTests.java
+                    VehicleCosts.java
+                customers
+                    AccountTests.java
+                    ContactsTests.java
+
+   Best thing is to combine Modular + Page Object + Data Driven
+
+   #####################################################################################
+
+   BDD - Behaviour Driven Development
+
+        In BDD we write business requirements from end user perspective.
+
+            For example:
+                  As user, I want to be able...... (describing some feature that we want in application)
+
+            This is a template for agile stories
+
+   It's not a bug, it's a feature!
+
+        feature - it's some functionality
+
+   #####################################################################################
+
+   Assert.assertEquals("apple", "apple"); // must be true
+
+   Test#1 (example of unit test)
+
+   String word = "apple";
+
+   String expectedResult = "elppa";
+   String actualResult = reverseString(word);
+
+   Assert.assertEquals(actualResult, expectedResult)
+   // if assertion passed, that means test passed as well
+
+   @Test
+   public String reverseString(String str) {
+            /**
+            * code that will reverse string
+            */
+            return reversed;
+   }
+
+   Test Driven Development - it's a development approach when before starting actual development,
+                             we create tests that will verify functionality (method).
+                             Functionality will be verified over unit test.
+                             For unit test we can use TestNG or Junit.
+                             Both of them are unit testing frameworks.
+
+   Junit is a pure unit testing framework.
+
+   For example in repl.it almost all assignments use Junit for verification.
+
+   Usually developers write unit tests for their code.
+
+   Unit testing is the lowest testing, and essential stage of development as well code review.
+
+   Sometimes SDET also involved into unit testing.
+   Our focus is on functional testing with selenium webdriver.
+
+   Also, solving repl.it tasks involve doing TDD
+
+   Every solution had to go through bunch of unit tests.
+
+   Based on errors, you could understand how to fix your code.
+
+   BDD is a branch of TDD.
+
+   For implementing BDD we use Cucumber.
+
